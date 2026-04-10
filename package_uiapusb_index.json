@@ -12,6 +12,41 @@
         {
           "name": "UIAPduino-USB",
           "architecture": "ch32v",
+          "version": "0.0.4",
+          "category": "Contributed",
+          "url": "https://github.com/tarosay/arduino-core-ch32-uiapusb/archive/refs/tags/0.0.4.zip",
+          "archiveFileName": "0.0.4.zip",
+          "checksum": "SHA-256:83770968E0290A78A027957082C951036637089F444EB79E548D2D47E4E4E348",
+          "size": "1473743",
+          "boards": [
+            { "name": "Pro Micro CH32V003 (UIAPUSB)" }
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "uiapusb",
+              "name": "xpack-riscv-none-elf-gcc",
+              "version": "14.2.0-2"
+            },
+            {
+              "packager": "uiapusb",
+              "name": "openocd",
+              "version": "1.0.0"
+            },
+            {
+              "packager": "uiapusb",
+              "name": "beforeinstall",
+              "version": "1.0.0"
+            },
+            {
+              "packager": "uiapusb",
+              "name": "minichlink-2982dfd",
+              "version": "1.0.0"
+            }
+          ]
+        },
+        {
+          "name": "UIAPduino-USB",
+          "architecture": "ch32v",
           "version": "0.0.3",
           "category": "Contributed",
           "url": "https://github.com/tarosay/arduino-core-ch32-uiapusb/archive/refs/tags/0.0.3.zip",
