@@ -53,13 +53,38 @@ WebHID を選択すると、Chrome / Edge の WebHID API を使って
 
 ## バージョン履歴
 
-### 1.0.0（最新）
+### 1.0.4（最新）
+
+- **Tone ライブラリ**を追加
+  - `tone(pin, freq)` がハードウェア PWM による真のノンブロッキング無限再生に対応
+  - `tone(pin, freq, duration)` で指定時間だけ鳴らして自動停止
+  - タイマーチャネルがないピンはソフトウェアビットバンフォールバック
+  - スケッチ例: ToneBasic / ToneDuration / ToneNoTone
+
+### 1.0.3
+
+- **Mouse.moveLarge()** を追加
+  - `-127〜127` の制限を超える大きなマウス移動を複数ステップに分割して送信
+  - `Mouse.moveLarge(x, y, wheel, steps)` — wheel・steps は省略可能
+
+### 1.0.2
+
+- **Keyboard.write()** の信頼性を改善
+  - 特殊キー（矢印・BackSpace・Enter など）の取りこぼしを修正
+  - press/release 間の待機時間を調整し USB ポーリングに確実に乗せるよう改善
+- スケッチ例を追加: KeyboardPractice / KeyboardSwitch
+
+### 1.0.1
+
+- **WebHID** の送受信を 16 バイト対応に拡張
+- EP3 の余分なポーリング送信を抑制（NAK で無送信）
+
+### 1.0.0
 
 - **HID ProMicro CH32V003 KBD+Mouse** ボードを追加
 - `Keyboard` / `Mouse` ライブラリを追加
 - **WebHID ライブラリ**を追加（EP3 双方向通信、Chrome / Edge 対応）
 - Board Version Select メニューで V1.4 / V1.4 + WebHID を切り替え可能に
-- USB デバイス名: `UIAPduino KBD+Mouse` / `UIAPduino KBD+Mouse+Web`
 
 ### 0.1.1
 
