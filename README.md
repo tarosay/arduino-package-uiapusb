@@ -25,7 +25,7 @@ https://github.com/tarosay/board_manager_files/raw/main/package_uiap_hid_index.j
 
 ### 3. ボードを選択
 
-`ツール` → `ボード` → `UIAP_HID` → 使用するボードを選択します。
+`ツール` → `ボード` → `UIAP_HID` → **HID ProMicro CH32V003** を選択します。
 
 ---
 
@@ -33,27 +33,54 @@ https://github.com/tarosay/board_manager_files/raw/main/package_uiap_hid_index.j
 
 ### HID ProMicro CH32V003
 
-USB HID 経由で PC とデータを送受信する汎用ボードです。  
-`HIDuiap` ライブラリを使って PC との通信ができます。
+1 種類のボードに統合されています。  
+`ツール` メニューで USB モード・UART・最適化レベルを選択します。
 
-### HID ProMicro CH32V003 KBD+Mouse
+#### USB メニュー
 
-USB キーボード・マウスとして PC を操作するボードです。  
-`Tools` → `Board Version Select` で機能を選択します。
+| 設定 | 機能 |
+|------|------|
+| WebHID Only（デフォルト） | WebHID 双方向通信（Chrome / Edge 対応） |
+| Keyboard+Mouse | USB キーボード ＋ マウス |
+| Keyboard+Mouse+WebHID | USB キーボード ＋ マウス ＋ WebHID 双方向通信 |
+| Terminal HID | HID シリアルターミナル |
 
-| Board Version | 機能 |
-|--------------|------|
-| V1.4 | キーボード ＋ マウス |
-| V1.4 + WebHID (EP3) | キーボード ＋ マウス ＋ WebHID 双方向通信 |
+#### U(S)ART support メニュー
 
-WebHID を選択すると、Chrome / Edge の WebHID API を使って  
-ブラウザと UIAPduino がリアルタイムで双方向通信できます。
+| 設定 | 機能 |
+|------|------|
+| None — use UIAPSerial（デフォルト） | 軽量 UART ラッパー。Flash 消費を最小に抑える |
+| HardwareSerial (Serial / USART1) | Arduino 標準の `Serial` を使用（+約 4.7 KB） |
+
+#### Optimize メニュー
+
+| 設定 | フラグ |
+|------|--------|
+| Smallest (-Os) with LTO（デフォルト） | `-Os -flto` |
+| Fast (-O1) with LTO | `-O1 -flto` |
+| Faster (-O2) with LTO | `-O2 -flto` |
+| Fastest (-O3) with LTO | `-O3 -flto` |
 
 ---
 
 ## バージョン履歴
 
-### 1.0.4（最新）
+### 1.1.0（最新）
+
+- **ボードを 1 種類に統合**
+  - `HID ProMicro CH32V003`・`HID ProMicro CH32V003 KBD+Mouse` など 3 ボードを  
+    `HID ProMicro CH32V003` 1 ボードに統合
+  - FQBN: `UIAP_HID:ch32v:CH32V003:opt=oslto`
+- **USB メニューを追加**
+  - WebHID Only（デフォルト）/ Keyboard+Mouse / Keyboard+Mouse+WebHID / Terminal HID
+  - デフォルトを Terminal HID → **WebHID Only** に変更
+- **U(S)ART support メニューを追加**
+  - None/UIAPSerial（デフォルト）/ HardwareSerial を切り替え可能に
+- **Optimize メニューを整理**
+  - LTO なしオプションと `-Og` / `-O0` を削除
+  - すべての最適化レベルで LTO (`-flto`) を有効化
+
+### 1.0.4
 
 - **Tone ライブラリ**を追加
   - `tone(pin, freq)` がハードウェア PWM による真のノンブロッキング無限再生に対応
