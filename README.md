@@ -44,6 +44,7 @@ https://github.com/tarosay/board_manager_files/raw/main/package_uiap_hid_index.j
 | Keyboard+Mouse | USB キーボード ＋ マウス |
 | Keyboard+Mouse+WebHID | USB キーボード ＋ マウス ＋ WebHID 双方向通信 |
 | Terminal HID | HID シリアルターミナル |
+| No USB (SD log / UART only) | USB スタックを除外（約 484B 節約）SD ログ・UART 専用 |
 
 #### U(S)ART support メニュー
 
@@ -72,7 +73,7 @@ https://github.com/tarosay/board_manager_files/raw/main/package_uiap_hid_index.j
     `HID ProMicro CH32V003` 1 ボードに統合
   - FQBN: `UIAP_HID:ch32v:CH32V003:opt=oslto`
 - **USB メニューを追加**
-  - WebHID Only（デフォルト）/ Keyboard+Mouse / Keyboard+Mouse+WebHID / Terminal HID
+  - WebHID Only（デフォルト）/ Keyboard+Mouse / Keyboard+Mouse+WebHID / Terminal HID / No USB
   - デフォルトを Terminal HID → **WebHID Only** に変更
 - **U(S)ART support メニューを追加**
   - None/UIAPSerial（デフォルト）/ HardwareSerial を切り替え可能に
