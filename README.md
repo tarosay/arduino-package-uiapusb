@@ -66,7 +66,13 @@ https://github.com/tarosay/board_manager_files/raw/main/package_uiap_hid_index.j
 
 ## バージョン履歴
 
-### 1.1.0（最新）
+### 1.1.1（最新）
+
+- **USB メニューに「No USB」を追加**
+  - `No USB (SD log / UART only)` — USB スタックを除外して約 484B Flash を節約
+  - SD ログ・UART 専用スケッチ（UIAPLog など）向け
+
+### 1.1.0
 
 - **ボードを 1 種類に統合**
   - `HID ProMicro CH32V003`・`HID ProMicro CH32V003 KBD+Mouse` など 3 ボードを  
