@@ -66,7 +66,16 @@ https://github.com/tarosay/board_manager_files/raw/main/package_uiap_hid_index.j
 
 ## バージョン履歴
 
-### 1.1.1（最新）
+### 1.1.2（最新）
+
+- **`Tools > USB > WebHID Only` でのビルドエラーを修正**
+  - `boards.txt`: WebHID Only モードに `-DUIAP_WEBHID_ONLY` フラグを追加
+    （以前はフラグが空で `WebHID.h` インクルード時にコンパイルエラーになっていた）
+  - `WebHID.h`: `#error` ガードを `UIAP_WEBHID_ONLY` にも対応させ、
+    エラーメッセージを現行メニュー名に更新
+  - `uiapusb.c`: WebHID-only デフォルト分岐のコメントを補強（保守ガイド追記）
+
+### 1.1.1
 
 - **USB メニューに「No USB」を追加**
   - `No USB (SD log / UART only)` — USB スタックを除外して約 484B Flash を節約
