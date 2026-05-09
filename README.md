@@ -66,7 +66,15 @@ https://github.com/tarosay/board_manager_files/raw/main/package_uiap_hid_index.j
 
 ## バージョン履歴
 
-### 1.1.2（最新）
+### 1.1.3（最新）
+
+- **USB デバイス名を修正（WebHID Only モード）**
+  - `usb_config.h`: `STR_PRODUCT` を `"UIAPduino SD+WebHID"` → `"UIAPduino WebHID"` に変更
+    （"SD" は開発時の内部コード名の名残で、公開名として不正確だった）
+  - `STR_SERIAL` を `"SDHID000"` → `"WOHID000"` に変更
+  - コメントも合わせて更新
+
+### 1.1.2
 
 - **`Tools > USB > WebHID Only` でのビルドエラーを修正**
   - `boards.txt`: WebHID Only モードに `-DUIAP_WEBHID_ONLY` フラグを追加

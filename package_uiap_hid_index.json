@@ -12,6 +12,41 @@
         {
           "name": "UIAPduino HID",
           "architecture": "ch32v",
+          "version": "1.1.3",
+          "category": "Contributed",
+          "url": "https://github.com/tarosay/arduino_core_ch32/archive/refs/tags/1.1.3.zip",
+          "archiveFileName": "1.1.3.zip",
+          "checksum": "SHA-256:9A186B2CFFCF53FF63904E58BC9B3B47638CB9031BD55F5861F67D74171A31BD",
+          "size": "1488150",
+          "boards": [
+            { "name": "HID ProMicro CH32V003" }
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "UIAP_HID",
+              "name": "xpack-riscv-none-elf-gcc",
+              "version": "14.2.0-2"
+            },
+            {
+              "packager": "UIAP_HID",
+              "name": "openocd",
+              "version": "1.0.0"
+            },
+            {
+              "packager": "UIAP_HID",
+              "name": "beforeinstall",
+              "version": "1.0.0"
+            },
+            {
+              "packager": "UIAP_HID",
+              "name": "minichlink-2982dfd",
+              "version": "1.0.0"
+            }
+          ]
+        },
+        {
+          "name": "UIAPduino HID",
+          "architecture": "ch32v",
           "version": "1.1.2",
           "category": "Contributed",
           "url": "https://github.com/tarosay/arduino_core_ch32/archive/refs/tags/1.1.2.zip",
