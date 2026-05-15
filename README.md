@@ -66,7 +66,21 @@ https://github.com/tarosay/board_manager_files/raw/main/package_uiap_hid_index.j
 
 ## バージョン履歴
 
-### 1.1.3（最新）
+### 1.1.5（最新）
+
+- **SDmin ライブラリを追加**
+  - CH32V003 (16KB Flash) 向けに最適化した FAT32 ミニマル SD ドライバ
+  - LFN・サブディレクトリ対応、SPI1 直接レジスタ制御で 6MHz 転送
+  - Flash 使用率を 77% 以下に抑えつつ SD spec 準拠の動作を実現
+- **WebHID Feature Report を 16 → 32 バイトに拡張**
+  - `usb_config.h`: `HID_REPORT_COUNT` を 32 に変更（2 箇所）
+  - `uiapusb.c`: `webhid_rx_buf` を 32 バイトに拡張（WebHID Only・複合モード両方）
+- **`uiapwebhid_send()` にタイムアウトを追加（スタンドアロン動作修正）**
+  - USB ホスト未接続時（モバイルバッテリー駆動など）に `while (webhid_tx_pending) {}` が
+    無限ループしてフリーズする問題を修正
+  - `while` → タイムアウト付き `for` ループに変更、ホスト接続時の動作は変わらない
+
+### 1.1.3
 
 - **USB デバイス名を修正（WebHID Only モード）**
   - `usb_config.h`: `STR_PRODUCT` を `"UIAPduino SD+WebHID"` → `"UIAPduino WebHID"` に変更
